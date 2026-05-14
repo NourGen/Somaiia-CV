@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coach Somaiia</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Amiri:wght@400;700&display=swap");
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      .cv {
+        font-family: "Tajawal", sans-serif;
+        direction: rtl;
+        max-width: 860px;
+        margin: 0 auto;
+        background: var(--color-background-primary);
+        color: var(--color-text-primary);
+      }
+      .header {
+        background: linear-gradient(
+          135deg,
+          #1a3a4a 0%,
+          #2c6e6a 50%,
+          #1a3a4a 100%
+        );
+        padding: 3rem 3rem 2.5rem;
+        position: relative;
+        overflow: hidden;
+      }
+      .header::before {
+        content: "";
+        position: absolute;
+        top: -40px;
+        left: -40px;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.04);
+      }
+      .header::after {
+        content: "";
+        position: absolute;
+        bottom: -60px;
+        right: 60px;
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.03);
+      }
+      .header-inner {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+      }
+      .avatar {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.15);
+        border: 2.5px solid rgba(255, 255, 255, 0.35);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: "Amiri", serif;
+        font-size: 26px;
+        color: #fff;
+        font-weight: 700;
+        flex-shrink: 0;
+        letter-spacing: 1px;
+      }
+      .header-text {
+        flex: 1;
+      }
+      .name {
+        font-family: "Amiri", serif;
+        font-size: 30px;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: 6px;
+      }
+      .title-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 30px;
+        padding: 5px 16px;
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.9);
+        margin-bottom: 14px;
+      }
+      .title-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #7ecfc8;
+      }
+      .contact-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 12.5px;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .contact-item i {
+        font-size: 14px;
+        color: #7ecfc8;
+      }
+      .body {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 0;
+      }
+      .sidebar {
+        background: #f7f9f8;
+        padding: 2rem 1.5rem;
+        border-left: 0.5px solid var(--color-border-tertiary);
+      }
+      .main {
+        padding: 2rem 2rem 2rem 1.5rem;
+      }
+      .section {
+        margin-bottom: 2rem;
+      }
+      .section-title {
+        font-family: "Amiri", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: #1a3a4a;
+        border-bottom: 2px solid #2c6e6a;
+        padding-bottom: 6px;
+        margin-bottom: 1rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .section-title i {
+        font-size: 16px;
+        color: #2c6e6a;
+      }
+      .goal-text {
+        font-size: 13.5px;
+        line-height: 1.9;
+        color: var(--color-text-secondary);
+      }
+      .skill-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        margin-bottom: 10px;
+        font-size: 13px;
+        color: var(--color-text-primary);
+        line-height: 1.6;
+      }
+      .skill-dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #2c6e6a;
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+      .cert-item {
+        background: var(--color-background-primary);
+        border: 0.5px solid var(--color-border-tertiary);
+        border-radius: var(--border-radius-md);
+        padding: 10px 12px;
+        margin-bottom: 8px;
+        border-right: 3px solid #2c6e6a;
+      }
+      .cert-text {
+        font-size: 12.5px;
+        color: var(--color-text-primary);
+        line-height: 1.6;
+      }
+      .cert-badge {
+        display: inline-block;
+        background: #e8f4f3;
+        color: #1a6b65;
+        font-size: 10.5px;
+        padding: 2px 8px;
+        border-radius: 20px;
+        margin-top: 4px;
+        font-weight: 500;
+      }
+      .exp-item {
+        margin-bottom: 1.2rem;
+        padding-bottom: 1.2rem;
+        border-bottom: 0.5px solid var(--color-border-tertiary);
+      }
+      .exp-item:last-child {
+        border-bottom: none;
+      }
+      .exp-title {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+        margin-bottom: 4px;
+      }
+      .exp-desc {
+        font-size: 13px;
+        color: var(--color-text-secondary);
+        line-height: 1.7;
+      }
+      .lang-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 8px;
+      }
+      .lang-name {
+        font-size: 13.5px;
+        font-weight: 500;
+      }
+      .lang-level {
+        font-size: 12px;
+        color: #2c6e6a;
+        background: #e8f4f3;
+        padding: 3px 10px;
+        border-radius: 20px;
+      }
+      .interest-tag {
+        display: inline-block;
+        background: var(--color-background-secondary);
+        border: 0.5px solid var(--color-border-tertiary);
+        border-radius: 20px;
+        padding: 5px 12px;
+        font-size: 12px;
+        color: var(--color-text-secondary);
+        margin: 3px 3px 3px 0;
+      }
+      .divider {
+        height: 0.5px;
+        background: var(--color-border-tertiary);
+        margin: 1rem 0;
+      }
+      .icf-highlight {
+        background: linear-gradient(135deg, #e8f4f3, #d4ece9);
+        border: 1px solid #7ecfc8;
+        border-radius: var(--border-radius-md);
+        padding: 12px 14px;
+        margin-bottom: 8px;
+      }
+      .icf-text {
+        font-size: 12.5px;
+        color: #0f5450;
+        line-height: 1.7;
+        font-weight: 500;
+      }
+      .icf-label {
+        font-size: 11px;
+        color: #2c6e6a;
+        font-weight: 700;
+        margin-bottom: 2px;
+      }
+    </style>
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+
+
+
+  <body>
+    <div class="cv">
+      <div class="header ">
+        <div class="header-inner">
+          <div class="avatar">
+            <img src="Matrial/front-2.jpeg" alt="Somaiia" style="width: 100%; border-radius: 50%;">
+          </div>
+          <div class="header-text">
+            <div class="name">سمية عباس عبدالرحمن</div>
+            <div class="title-badge">
+              <span class="title-dot"></span>
+              كوتش علاقات · أخصائية إرشاد نفسي وأسري
+            </div>
+            <div class="contact-row">
+              <div class="contact-item">
+                <i class="ti ti-phone" aria-hidden="true"></i>01067683869
+              </div>
+              <div class="contact-item">
+                <i class="ti ti-mail" aria-hidden="true"></i
+                >coachsomaiia@gmail.com
+              </div>
+              <div class="contact-item">
+                <i class="ti ti-map-pin" aria-hidden="true"></i>مدينة 6 أكتوبر،
+                الجيزة
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="body">
+        <div class="sidebar">
+          <div class="section">
+            <div class="section-title">
+              <i class="ti ti-award" aria-hidden="true"></i>المؤهلات والتدريب
+            </div>
+
+            <div class="icf-highlight">
+              <div class="icf-label">🎓 قيد الدراسة حالياً</div>
+              <div class="icf-text">
+                دبلومة التدريب الأسري المتكامل (Integrated Family Coaching) —
+                مستوى PCC من ICF
+              </div>
+            </div>
+
+            <div class="cert-item">
+              <div class="cert-text">دبلومة كوتشينج الأسرة المسلمة</div>
+              <div class="cert-badge">ICF معتمدة</div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-text">دورة الكوتش المحترف</div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-text">دورة الإرشاد النفسي والأسري</div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-text">تدريب في كوتشينج الأسرة المسلمة</div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-text">علم النفس الأسري — 60 ساعة</div>
+              <div class="cert-badge">كلية أفونشاير، بريستول</div>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              <i class="ti ti-language" aria-hidden="true"></i>اللغات
+            </div>
+            <div class="lang-row">
+              <span class="lang-name">العربية</span>
+              <span class="lang-level">اللغة الأم</span>
+            </div>
+          </div>
+
+          <div class="section">
+            <div class="section-title">
+              <i class="ti ti-heart" aria-hidden="true"></i>الاهتمامات المهنية
+            </div>
+            <div>
+              <span class="interest-tag">الكوتشينج الأسري</span>
+              <span class="interest-tag">برامج النساء والأسر</span>
+              <span class="interest-tag">الصحة النفسية</span>
+              <span class="interest-tag">العلاقات الصحية</span>
+              <span class="interest-tag">الوعي الذاتي</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="main">
+          <div class="section">
+            <div class="section-title">
+              <i class="ti ti-target" aria-hidden="true"></i>الهدف المهني
+            </div>
+            <p class="goal-text">
+              مساعدة الأفراد والأسر على تحسين جودة حياتهم العاطفية والأسرية من
+              خلال جلسات كوتشينج احترافية وبرامج تدريبية عملية، تسهم في بناء
+              علاقات صحية وتعزيز الوعي الذاتي.
+            </p>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <div class="section-title">
+              <i class="ti ti-briefcase" aria-hidden="true"></i>الخبرات المهنية
+            </div>
+            <div class="exp-item">
+              <div class="exp-title">كوتش علاقات — جلسات فردية</div>
+              <div class="exp-desc">
+                تقديم جلسات كوتشينج فردية متخصصة في مجالات العلاقات وتقدير
+                الذات، مع التركيز على بناء وعي الأفراد بأنماطهم العاطفية
+                وتمكينهم من اتخاذ خيارات أكثر صحة.
+              </div>
+            </div>
+            <div class="exp-item">
+              <div class="exp-title">تصميم ورش عمل ودورات تدريبية</div>
+              <div class="exp-desc">
+                العمل حالياً على تصميم ورش عمل ودورات تدريبية متخصصة في مجال
+                العلاقات والأسرة، تستهدف النساء والأسر وتقدم محتوى عملياً
+                وقابلاً للتطبيق.
+              </div>
+            </div>
+          </div>
+
+          <div class="divider"></div>
+
+          <div class="section">
+            <div class="section-title">
+              <i class="ti ti-tools" aria-hidden="true"></i>المهارات المهنية
+            </div>
+            <div
+              style="display: grid; grid-template-columns: 1fr 1fr; gap: 4px"
+            >
+              <div class="skill-item">
+                <span class="skill-dot"></span>إدارة جلسات الكوتشينج الفردية
+              </div>
+              <div class="skill-item">
+                <span class="skill-dot"></span>الاستماع العميق وطرح الأسئلة
+                الفعّالة
+              </div>
+              <div class="skill-item">
+                <span class="skill-dot"></span>التعامل مع أنماط التعلق العاطفي
+              </div>
+              <div class="skill-item">
+                <span class="skill-dot"></span>دعم التعافي من العلاقات المؤذية
+              </div>
+              <div class="skill-item">
+                <span class="skill-dot"></span>تصميم برامج وورش تدريبية
+              </div>
+              <div class="skill-item">
+                <span class="skill-dot"></span>الإرشاد النفسي والأسري
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
